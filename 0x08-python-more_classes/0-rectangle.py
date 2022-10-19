@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # 0-rectangle.py
-# Brennan D Baraban <375@holbertonschool.com>
+# Jeremiah IKE. Obuseri
 """Defines a Rectangle class."""
 
 
