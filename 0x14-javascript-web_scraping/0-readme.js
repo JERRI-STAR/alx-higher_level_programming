@@ -1,18 +1,20 @@
 #!/usr/bin/node
-import sys
+const fs = require('fs');
+const path = require('path');
 
-def read_file_content(file_path):
-    try:
-        with open(file_path, 'r', encoding='utf-8') as file:
-            content = file.read()
-            print(content)
-    except FileNotFoundError:
-        print(f"File '{file_path}' not found.")
-    except Exception as e:
-        print(f"An error occurred: {e}")
+function readFileContent(filePath) {
+    try {
+        const content = fs.readFileSync(filePath, 'utf-8');
+        console.log(content);
+    } catch (error) {
+        console.error(`Error reading file: ${error.message}`);
+    }
+}
 
-if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python read_file.py <file_path>")
-    else:
-        read_file_content(sys.argv[1])
+if (require.main === module) {
+    if (process.argv.length < 3) {
+        console.error('Usage: node read_file.js <file_path>');
+    } else {
+        readFileContent(process.argv[2]);
+    }
+}
